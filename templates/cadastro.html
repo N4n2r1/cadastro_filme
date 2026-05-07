@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro - DevFLIX</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="login-page">
+    <div class="login-wrapper">
+        <div class="login-card">
+            <h2 class="login-title">Criar Conta</h2>
+
+            {% if erro %}
+            <div class="login-error"><span>⚠️ {{ erro }}</span></div>
+            {% endif %}
+
+            <form method="POST" class="login-form">
+                <div class="input-group">
+                    <input type="text" name="nome" placeholder=" " required>
+                    <label>Nome Completo</label>
+                </div>
+                <div class="input-group">
+                    <input type="email" name="email" placeholder=" " required>
+                    <label>Email</label>
+                </div>
+                <div class="input-group">
+                    <input type="password" name="password" placeholder=" " required>
+                    <label>Senha (Mín. 8 caracteres + especial)</label>
+                </div>
+                <button type="submit" class="btn-login">Cadastrar</button>
+            </form>
+            <div class="login-footer">
+                <a href="{{ url_for('login') }}" style="color: white; text-decoration: none;">Já tem conta? Entrar</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
